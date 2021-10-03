@@ -7,8 +7,10 @@ namespace EStoreProject.BusinessLogic
 {
     public interface IAdminRepository
     {
+        //Repository
       
         void AddAdmin(Admin objAdmin);
         Admin GetByAdEmail_id(string AdEmail_id);
+
     }
 }
