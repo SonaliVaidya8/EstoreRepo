@@ -1,0 +1,53 @@
+﻿@model EStoreProject.Model.Admin
+
+@{
+    ViewData["Title"] = "CreateAdmin";
+}
+
+<h1>CreateAdmin</h1>
+
+<h4>Admin</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateAdmin">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AdFirstName" class="control-label"></label>
+                <input asp-for="AdFirstName" class="form-control" />
+                <span asp-validation-for="AdFirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdLastName" class="control-label"></label>
+                <input asp-for="AdLastName" class="form-control" />
+                <span asp-validation-for="AdLastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdEmail_id" class="control-label"></label>
+                <input asp-for="AdEmail_id" class="form-control" />
+                <span asp-validation-for="AdEmail_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdContactNumber" class="control-label"></label>
+                <input asp-for="AdContactNumber" class="form-control" />
+                <span asp-validation-for="AdContactNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdPassword" class="control-label"></label>
+                <input asp-for="AdPassword" class="form-control" />
+                <span asp-validation-for="AdPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
