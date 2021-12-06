@@ -1,8 +1,277 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+   <style>
+      
+       .m1{
+           width:70%;
+           height:40%;
+       }
+   </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+     
+    <link rel="stylesheet" href="~/css/Style1.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <main>
+        <br/>
+            <br/>
+        <h1 class="bannertitle2">Featured Categories</h1>
+        <section class="section advert">
+            <div class="advert-center container">
+                <div class="advert-box"onclick="window.location.href = 'Home/WomensEthnicSets';">
+                    <div class="dotted">
+                        <div class="content">
+                            <h2>Womens<br /> Ethnic Sets</h2>
+                            <h4>Worlds Best Brands</h4>
+                        </div>
+                    </div>
+                    <img src="~/Images/D19.jpg">
+                </div>
+                <div class="advert-box" onclick="window.location.href = 'Home/CasualShirts';">
+                    <div class="dotted">
+                        <div class="content">
+                            <h2>Mens<br /> Casual Shirts</h2>
+                            <h4>Worlds Best Brands</h4>
+                        </div>
+                    </div>
+                    <img src="~/Images/Shirt2.jpg">
+                </div>
+                <div class="advert-box" onclick="window.location.href = 'Home/TShirts';">
+                    <div class="dotted">
+                        <div class="content">
+                            <h2>Mens<br /> T-Shirts</h2>
+                            <h4>Worlds Best Brands</h4>
+                        </div>
+                    </div>
+                    <img src="~/Images/T13.jpg">
+                </div>
+            </div>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+            <br/>
+            <br/>
+            <br/>
+            <div class="advert-center container">
+                <div class="advert-box" onclick="window.location.href = 'Home/Saree';">
+                    <div class="dotted">
+                        <div class="content">
+                            <h2>Womens<br /> Sarees</h2>
+                            <h4>Worlds Best Brands</h4>
+                        </div>
+                    </div>
+                    <img src="~/Images/SR17.jpg">
+                </div>
+                <div class="advert-box" onclick="window.location.href = 'Home/Jeans';">
+                    <div class="dotted">
+                        <div class="content">
+                            <h2>Mens<br /> Jeans</h2>
+                            <h4>Worlds Best Brands</h4>
+                        </div>
+                    </div>
+                    <img src="~/Images/J11.jpg">
+                </div>
+                <div class="advert-box" onclick="window.location.href = 'Home/WomenDresses';">
+                    <div class="dotted">
+                        <div class="content">
+                            <h2>Womens<br /> Dresses</h2>
+                            <h4>Worlds Best Brands</h4>
+                        </div>
+                    </div>
+                    <img src="~/Images/WD12.jpg">
+                </div>
+            </div>
+
+        </section>
+        
+        <section class="section featured">
+            <div class="title">
+                <h1> Featured Products</h1>
+            </div>
+            <div class="product-center container">
+                <div class="product" onclick="window.location.href = 'Home/ProductDetails/35';">
+                    <div class="product-header">
+                        <img src="~/Images/Sari a.jpg">
+
+                    </div>
+                    <div class="product-footer">
+                        <a href="#">
+                            <h3>Sari</h3>
+                        </a>
+                        <div class="ratting">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+
+                        </div>
+                        <h4 class="price">$170</h4>
+                    </div>
+                </div>
+
+                <div class="product" onclick="window.location.href = 'Home/ProductDetails/32';">
+                    <div class="product-header">
+                        <img src="~/Images/Shirt2.jpg">
+                    </div>
+                    <div class="product-footer">
+                        <a href="#">
+                            <h3>Shirts</h3>
+                        </a>
+                        <div class="ratting">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <h4 class="price">$60</h4>
+                    </div>
+                </div>
+
+                <div class="product" onclick="window.location.href = 'Home/ProductDetails/36';">
+                    <div class="product-header">
+                        <img src="~/Images/T3.jpg">
+                    </div>
+                    <div class="product-footer">
+                        <a href="#">
+                            <h3>T-Shirt</h3>
+                        </a>
+                        <div class="ratting">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+
+                        </div>
+                        <h4 class="price">$50</h4>
+                    </div>
+                </div>
+
+                <div class="product" onclick="window.location.href = 'Home/ProductDetails/37';">
+                    <div class="product-header">
+                        <img src="~/Images/D12.jpg">
+                    </div>
+                    <div class="product-footer">
+                        <a href="#">
+                            <h3 font-size:2.2rem>Ethics Sets</h3>
+                        </a>
+                        <div class="ratting">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+
+
+                        </div>
+                        <h4 class="price">$70</h4>
+                    </div>
+                </div>
+
+            </div>
+
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <div class="product-center container">
+                <div class="product" onclick="window.location.href = 'Home/ProductDetails/38';">
+                    <div class="product-header">
+                        <img src="~/Images/SR12.jpg">
+                    </div>
+                    <div class="product-footer">
+                        <a href="#">
+                            <h3>Silk Saree</h3>
+                        </a>
+                        <div class="ratting">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+
+                        </div>
+                        <h4 class="price">$90</h4>
+                    </div>
+                </div>
+
+                <div class="product" onclick="window.location.href = 'Home/ProductDetails/39';">
+                    <div class="product-header">
+                        <img src="~/Images/S13.jpg">
+                    </div>
+                    <div class="product-footer">
+                        <a href="#">
+                            <h3>Shirts</h3>
+                        </a>
+                        <div class="ratting">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+
+                        </div>
+                        <h4 class="price">$80</h4>
+                    </div>
+                </div>
+
+                <div class="product" onclick="window.location.href = 'Home/ProductDetails/40';">
+                    <div class="product-header">
+                        <img src="~/Images/T8.jpg">
+                    </div>
+                    <div class="product-footer">
+                        <a href="#">
+                            <h3>T-Shirt</h3>
+                        </a>
+                        <div class="ratting">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+
+                        </div>
+                        <h4 class="price">$50</h4>
+                    </div>
+                </div>
+
+                <div class="product" onclick="window.location.href = 'Home/ProductDetails/41';">
+                    <div class="product-header">
+                        <img src="~/Images/WD11.jpg">
+                    </div>
+                    <div class="product-footer">
+                        <a href="#">
+                            <h3>Womens Outfit</h3>
+                        </a>
+                        <div class="ratting">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <h4 class="price">$50</h4>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </section>
+        </main>
+
+</body>
+</html>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

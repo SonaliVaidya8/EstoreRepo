@@ -1,0 +1,50 @@
+﻿@model EStoreProject.Model.ProductCategory
+
+@{
+    ViewData["Title"] = "DeleteProductCategory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br>
+<br>
+
+<h2>Delete Product Category</h2>
+
+<h4>Are you sure wants to delete this?</h4>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductCategoryId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ProductCategoryId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductCategoryName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ProductCategoryName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductCategoryImage)
+        </dt>
+        <dd class = "col-sm-10">
+            <img src="~/Images/@Model.ProductCategoryImage " height="150" width="200" />
+        </dd>
+    </dl>
+    
+    <form asp-action="DeleteProductCategory">
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<style>
+    h2 {
+        color: #277582;
+    }
+</style>

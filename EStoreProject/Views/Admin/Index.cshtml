@@ -1,0 +1,80 @@
+﻿@model IEnumerable<EStoreProject.Model.Admin>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br>
+<br>
+<div >
+    <h1>Admins List</h1>
+    </div>
+
+    <p>
+        <div class="text-right">
+            <a asp-action="CreateAdmin" class="btn btn-success">Add New Admin</a>
+        </div>
+    </p>
+    <table class="table table-striped border">
+
+        <thead>
+            <tr class="table-info">
+
+                <th>
+                    @Html.DisplayNameFor(model => model.AdFirstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AdLastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AdContactNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AdEmail_id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AdPassword)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AdFirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AdLastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AdContactNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AdEmail_id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AdPassword)
+                    </td>
+                    <td>
+
+                        @Html.ActionLink("Remove Admin", "DeleteAdmin", new { id = item.AdEmail_id }, new { @class = "btn btn-danger" })
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+<br>
+<br>
+<br>
+<br>
+<br>
+<style>
+
+    h1 {
+        color: #277582;
+    }
+
+    </style>

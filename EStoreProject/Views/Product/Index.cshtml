@@ -1,0 +1,103 @@
+﻿@model IEnumerable<EStoreProject.Model.Products>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br>
+
+
+<h1>Product List</h1>
+
+<p>
+    <div class="text-right">
+    <a asp-action="CreateNewProduct" class="btn btn-success">Create New Product</a>
+        </div>
+</p>
+
+<form metod="get" asp-action="Index">
+    <p>
+
+        <input type="search" placeholder="Enter Product Name or Category..." value="@ViewData["GetAllProduct"]" name="productSearch" style="width:500px" />
+        <input type="submit" value="earch" class="btn btn-primary"/>
+        <a asp-action="Index">Get All Products</a>
+    </p>
+
+</form>
+<table class="table table-striped border">
+    <thead>
+        <tr class="table-info">
+            <th>
+                @Html.DisplayNameFor(model => model.ProductId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductCategoryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductSize)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductImage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductRating)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductCategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductSize)
+            </td>
+            <td>
+                <img src="~/Images/@item.ProductImage " height="150" width="200" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductRating)
+            </td>
+            <td>
+
+                @Html.ActionLink("Edit", "UpdateProduct", new { id = item.ProductId }, new { @class = "btn btn-primary" }) |
+                @Html.ActionLink("Details", "GetProductById", new { id = item.ProductId }, new { @class = "btn btn-success" }) |
+                @Html.ActionLink("Delete", "DeleteProduct", new { id = item.ProductId }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<br>
+<br>
+<br>
+<br>
+<br>
+<style>
+    h1 {
+        color: #277582;
+    }
+</style>

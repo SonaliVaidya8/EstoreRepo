@@ -1,0 +1,44 @@
+.navbar-collapse collapse d-sm-inline-flex justify-content-between ul{
+    margin:0;
+    padding:0;
+    list-style:none;
+    line-height:60px;
+}
+.navbar-collapse collapse d-sm-inline-flex justify-content-between li {
+    float:left;
+
+}
+.navbar-collapse collapse d-sm-inline-flex justify-content-between {
+    background-color:cadetblue;
+}
+.nav item nav-link text-dark{
+    font-size:40px;
+
+}
+.search-form{
+    margin-top:15px;
+    float:right;
+    margin-right:100px;
+
+}
+input{
+    padding:7px;
+    border:none;
+    font-size:25px;
+    font-family:sans-serif;
+
+}
+button{
+    float:right;
+    background:orange;
+    color:white;
+    border-radius:0 5px 5px 0;
+    cursor:pointer;
+    position:relative;
+    padding:7px;
+    font-family:sans-serif;
+    border:none;
+    font-size:16px;
+}
+
+

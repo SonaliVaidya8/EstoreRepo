@@ -1,0 +1,135 @@
+﻿@model EStoreProject.Model.Login
+
+@{
+    ViewData["Title"] = "GetByAdEmail_id";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var returnUrl = ViewData["ReturnUrl"] as string;
+    var error = TempData["Error"] as string;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Form</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+
+<body>
+    <br>
+    <br>
+    <h2>Login</h2><br>
+
+    <div class="login">
+        <form id="login" method="post" action="/login?ReturnUrl=@System.Net.WebUtility.UrlEncode(returnUrl)">
+            <!--action="Index"- methid=get>---->
+            <label>
+                <b>
+                    Email ID
+                </b>
+            </label>
+            <input asp-for="AdEmail_id" id="Email" class=" form-control" type="text" />
+            <br>
+            <br>
+            <label>
+                <b>
+                    Password
+                </b>
+            </label>
+            <input asp-for="AdPassword" id="Pass" class=" form-control" type="password" />
+            <br>
+            <br>
+
+            <input type="submit" name="log" id="log" value="Login ">
+            <br>
+            <br>
+            @if (!string.IsNullOrEmpty(error))
+            {
+                <h4 style="font-size:medium ; color:red">@error</h4>
+            }
+
+            <P style="text-align:center">OR</P>
+            <br>
+            <a float="inherit" asp-controller="Admin" asp-action="CreateAdmin">Create New Admin
+            </a>
+
+            <br>
+            <br>
+            <a href="#"> Forgot Password?</a>
+            <br>
+            <br>
+            <p>Register a new Admin? Login to view the Registered Admin page.</p>
+
+        </form>
+    </div>
+</body>
+</html>
+<br>
+<br>
+<br>
+<br>
+<br>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: white;
+        font-family: 'Arial';
+    }
+
+    .login {
+        width: 500px;
+        overflow: hidden;
+        margin: auto;
+        margin: 20 0 0 450px;
+        padding: 80px;
+        background: #28c8e2;
+        border-radius: 15px;
+    }
+
+    h2 {
+        text-align: center;
+        color: #277582;
+        padding: 20px;
+    }
+
+    label {
+        font-size: 17px;
+    }
+
+    #Email {
+        width: 300px;
+        height: 30px;
+        border: none;
+        border-radius: 3px;
+        padding-left: 8px;
+    }
+
+    #Pass {
+        width: 300px;
+        height: 30px;
+        border: none;
+        border-radius: 3px;
+        padding-left: 8px;
+    }
+
+    #log {
+        width: 300px;
+        height: 30px;
+        border: none;
+        border-radius: 17px;
+        padding-left: 7px;
+        color: blue;
+    }
+
+    span {
+        color: black;
+        font-size: 17px;
+    }
+
+    a {
+        float: right;
+    }
+
+    
+</style>

@@ -1,0 +1,76 @@
+﻿@model IEnumerable<EStoreProject.Model.ProductCategory>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br>
+
+<h1>Product Category List</h1>
+
+<p>
+    <div class="text-right">
+    <a asp-action="CreateProductCategory" class="btn btn-success">Create New Product Category</a>
+        </div>
+</p>
+
+<form metod="get" asp-action="Index">
+    <p>
+        <input type="search" placeholder="Enter Product Name or Category..." size="20" value="@ViewData["GetAllProductCategory"]" name="Productsearch" style="width:500px" />
+        <input type="submit" value="Search" class="btn btn-primary" />
+        <a asp-action="Index">Get All Products</a>
+    </p>
+
+</form>
+
+    <table class="table table-striped border">
+
+        <thead>
+            <tr class="table-info">
+
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductCategoryId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductCategoryName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductCategoryImage)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductCategoryId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductCategoryName)
+                    </td>
+                    <td>
+                        <img src="~/Images/@item.ProductCategoryImage " height="150" width="200" />
+                    </td>
+                    <td>
+
+                        @Html.ActionLink("Edit", "UpdateProductCategory", new { id = item.ProductCategoryId }, new { @class = "btn btn-primary" }) |
+                        @Html.ActionLink("Details", "GetProductCategoryById", new { id = item.ProductCategoryId }, new { @class = "btn btn-success" }) |
+                        @Html.ActionLink("Delete", "DeleteProductCategory", new { id = item.ProductCategoryId }, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+<br>
+<br>
+<br>
+<br>
+<br>
+    <style>
+        h1 {
+            color: #277582;
+        }
+    </style>
+

@@ -1,11 +1,17 @@
 ﻿using EStoreProject.Model;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace EStoreProject.BusinessLogic
+namespace EStoreProject.DataAccess.Interfaces
 {
     public interface IAdminContextDb
     {
         void AddAdmin(Admin objAdmin);
-        Admin GetByAdEmail_id(string AdEmail_id);
+
+        //int GetByAdEmail_id(string AdEmail_id, string AdPassword);
+        List<Admin> GetAllAdmin();
+       // void DeleteAdmin(int admin);
 
     }
 }

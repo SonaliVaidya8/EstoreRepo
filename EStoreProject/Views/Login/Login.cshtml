@@ -1,0 +1,23 @@
+﻿@model EStoreProject.Model.Login
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "GetByAdEmail_id";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var returnUrl = ViewData["ReturnUrl"] as string;
+    var error = TempData["Error"] as string;
+}
+<h1>Login</h1>
+@if (!string.IsNullOrEmpty(error))
+{
+    <h2 class="alert-danger" style="padding:20px;">@error</h2>
+}
+<form action="/login?ReturnUrl=@System.Net.WebUtility.UrlEncode(returnUrl)" method="post">
+    <input type="text" name="Emailid" placeholder="Emailid" />
+    <input type="password" name="password" placeholder="password" />
+    <input type="submit" value="login" />
+
+
+
+</form>

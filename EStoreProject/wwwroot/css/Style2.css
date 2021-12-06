@@ -1,0 +1,41 @@
+.btn {
+    display: inline-block;
+    background: #FF8C00;
+    color: #fff;
+    padding: 8px 30px;
+    margin: 30px 0;
+    border-radius: 30px;
+    margin-left: 30%;
+    top: 0;
+    bottom: 50%;
+}
+.h4{
+    margin:20px 0;
+    font-size:22px;
+    font-weight:bold;
+}
+.select{
+    display:block;
+    padding:10px;
+    margin-top:20px;
+
+}
+.input{
+    width:50px;
+    height:40px;
+    padding-left:10px;
+    font-size:20px;
+    margin-right:10px;
+    border: 1px solid #ff523b;
+}
+input:focus{
+    outline:none;
+}
+.fa {
+    color: #ff523b;
+    margin-left:10px;
+}
+.h1{
+    font-size:26px;
+    line-height:32px;
+}

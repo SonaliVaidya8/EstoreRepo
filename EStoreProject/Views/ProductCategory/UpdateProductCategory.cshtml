@@ -1,0 +1,72 @@
+﻿@model EStoreProject.Model.ProductCategory
+
+@{
+    ViewData["Title"] = "UpdateProductCategory";
+}
+<br>
+<br>
+<h2>Update ProductCategory</h2>
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="UpdateProductCategory" class="geeta">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ProductCategoryId" class="control-label"></label>
+                <input asp-for="ProductCategoryId" class="form-control" />
+                <span asp-validation-for="ProductCategoryId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ProductCategoryName" class="control-label"></label>
+                <input asp-for="ProductCategoryName" class="form-ontrol" />
+                <span asp-validation-for="ProductCategoryName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductCategoryImage" class="control-label"></label>
+                <input asp-for="ProductCategoryImage" class="form-control" type="file" />
+                <span asp-validation-for="ProductCategoryImage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+            <div class="text-center">
+                <a asp-action="Index">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+<br>
+<br>
+<br>
+<br>
+<br>
+<style>
+    h2 {
+        text-align: center;
+        color: #277582;
+        padding: 20px;
+    }
+    .geeta {
+        border: black;
+        border-width: 1px;
+        border-style: solid;
+        padding-left: 30px;
+        padding-right: 1px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        background-color: #78C7C7;
+    }
+
+    .form-control {
+        width: 275px;
+    }
+
+</style>

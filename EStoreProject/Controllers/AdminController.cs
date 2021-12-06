@@ -1,70 +1,107 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using EStoreProject.DataAccess.Interfaces;
+using EStoreProject.Model;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using EStoreProject.DataAccess;
-using EStoreProject.Model;
 
 namespace EStoreProject.Controllers
 {
     public class AdminController : Controller
+    { 
+    private readonly IAdminContextDb _contextDb;
+    public AdminController(IAdminContextDb context)
     {
-        AdminContextDb _contextDb = new AdminContextDb();
-        public IActionResult Index()
-        {
-            return View();
+        _contextDb = context;
+    }
+    public IActionResult Index()
+    {
+            List<Admin> adminList = _contextDb.GetAllAdmin().ToList();
+            return View(adminList);
         }
-        public IActionResult CreateAdmin()
-        {
-            return View();
+    public IActionResult CreateAdmin()
+    {
+        return View();
 
+    }
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult CreateAdmin([Bind] Admin objAdmin)
+    {
+        try
+        {
+            if (ModelState.IsValid)
+            {
+                _contextDb.AddAdmin(objAdmin);
+                return RedirectToAction("Index");
+
+            }
+            return View(objAdmin);
         }
-        [HttpPost]
+        catch
+        {
+            return View();
+        }
+    }
+
+
+        /*
+        public ActionResult DeleteAdmin(int id)
+        {
+            if (id <= 0)
+            {
+                return NotFound();
+            }
+            Admin admin = _contextDb.GetAdminByEmailId(id);
+            if (admin == null)
+            {
+                return NotFound();
+            }
+            return View(admin);
+        }
+
+        // POST: ProductController/Delete/5
+        [HttpPost, ActionName("DeleteAdmin")]
         [ValidateAntiForgeryToken]
-        public IActionResult CreateAdmin([Bind] Admin ad)
+        public ActionResult DeleteConfirmed(int id)
         {
             try
             {
-                if (ModelState.IsValid)
-                {
-                    _contextDb.AddAdmin(ad);
-                    return RedirectToAction("Index");
-
-                }
-                return View(ad);
+                _contextDb.DeleteAdmin(id);
+                return RedirectToAction("Index");
             }
             catch
             {
                 return View();
             }
+        }*/
+
+
+
+        /*
+        public IActionResult GetByAdEmail_id()
+        {
+            return View();
         }
 
-        public IActionResult GetByAdEmail_id(string email_id)
+        [HttpPost]
+        public IActionResult GetByAdEmail_id([Bind] Admin objAdmin, string AdEmail_id, string AdPassword)
         {
-            /*
-            int result = _contextDb.GetByEmail_id(email_id);
+            int result = _contextDb.GetByAdEmail_id(AdEmail_id, AdPassword);
             if (result == 1)
             {
-                TempData["msg"] = "you are welcome you have loged In";
+                return RedirectToAction("Index");
+                //TempData["Message"] = "Welcome to Login Page";
             }
             else
             {
-                TempData["msg"] = "Email id or Password is wrong";
+                TempData["Message"] = "Invalid Email Id or Password!";
             }
             return View();
-            */
-            if (email_id==null)
-            {
-                return NotFound();
-            }
-            Admin admin = _contextDb.GetByEmail_id(email_id);
-            if (admin == null)
-            {
+        }*/
 
-                return NotFound();
-            }
-            return View(admin);
-        }
-    } 
-}
+    }
+    }
+
+

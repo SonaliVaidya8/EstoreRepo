@@ -1,3 +1,4 @@
+using EStoreProject.BusinessLogic;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -8,6 +9,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EStoreProject.DataAccess;
+using EStoreProject.DataAccess.Interfaces;
+using EStoreProject.BusinessLogic.Interfaces;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using System.Security.Claims;
 
 namespace EStoreProject
 {
@@ -23,7 +29,58 @@ namespace EStoreProject
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddDistributedMemoryCache();
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromSeconds(10);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+
+            });
+            
+                services.AddControllersWithViews();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>{
+                    options.LoginPath = "/login";
+                    options.AccessDeniedPath = "/denied";
+                    options.Events = new CookieAuthenticationEvents()
+                    {
+                       OnSigningIn = async context =>
+                       {
+                           /*
+                           var principal = context.Principal;
+                           if(principal.HasClaim(c => c.Type == ClaimTypes.NameIdentifier))
+                           {
+                               if (principal.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value == "geeta")
+                               {
+                                   var claimsIdentity = principal.Identity as ClaimsIdentity;
+                                   claimsIdentity.AddClaim(new Claim(ClaimTypes.Role, "Admin"));
+                               }*/
+                           
+                           await Task.CompletedTask;
+                       },
+                       OnSignedIn = async context =>
+                       {
+                           await Task.CompletedTask;
+
+                       },
+                       OnValidatePrincipal = async context =>
+                       {
+                           await Task.CompletedTask;
+
+                       }
+                    };
+
+                });
+
+            services.AddTransient<IAdminContextDb,AdminContextDb>();
+   
+            services.AddTransient<IProductContextDb,ProductContextDb>();
+
+            services.AddTransient<IProductCategoryContextDb, ProductCategoryContextDb>();
+
+            services.AddTransient<ILoginContextDb, LoginContextDb>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,7 +101,9 @@ namespace EStoreProject
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
@@ -53,5 +112,6 @@ namespace EStoreProject
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
+        
     }
 }

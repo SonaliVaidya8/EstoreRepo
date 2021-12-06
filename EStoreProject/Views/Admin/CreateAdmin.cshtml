@@ -4,50 +4,160 @@
     ViewData["Title"] = "CreateAdmin";
 }
 
-<h1>CreateAdmin</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register Admin</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <br>
+    <br>
+    <h2>Register</h2><br>
 
-<h4>Admin</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="CreateAdmin">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="AdFirstName" class="control-label"></label>
-                <input asp-for="AdFirstName" class="form-control" />
-                <span asp-validation-for="AdFirstName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AdLastName" class="control-label"></label>
-                <input asp-for="AdLastName" class="form-control" />
-                <span asp-validation-for="AdLastName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AdEmail_id" class="control-label"></label>
-                <input asp-for="AdEmail_id" class="form-control" />
-                <span asp-validation-for="AdEmail_id" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AdContactNumber" class="control-label"></label>
-                <input asp-for="AdContactNumber" class="form-control" />
-                <span asp-validation-for="AdContactNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AdPassword" class="control-label"></label>
-                <input asp-for="AdPassword" class="form-control" />
-                <span asp-validation-for="AdPassword" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
+    <div class="register">
+        <form id="register" method="post">
+            <!--action="Index"- methid=get>---->
+            <label>
+                <b>
+                    Admin First Name
+                </b>
+            </label>
+            <input asp-for="AdFirstName" id="Name" class=" form-control" type="text" />
+            <br>
+            <label>
+                <b>
+                    Admin Last Name
+                </b>
+            </label>
+            <input asp-for="AdLastName" id="Name" class=" form-control" type="text" />
+            <br>
+            <br>
+
+            <label>
+                <b>
+                    Admin Email
+                </b>
+            </label>
+            <input asp-for="AdEmail_id" id="Email" class=" form-control" type="email" />
+            <br>
+            <br>
+
+            <label>
+                <b>
+                    Admin Mobile Number
+                </b>
+            </label>
+            <input asp-for="AdContactNumber" id="Mobile" class=" form-control" type="text" />
+            <br>
+            <br>
+
+            <label>
+                <b>
+                    Admin Password
+                </b>
+            </label>
+            <input asp-for="AdPassword" id="Password" class=" form-control" type="password" />
+            <br>
+            <br>
+
+            
+            <input type="submit" name="log" id="log" value="Register ">
+            <br>
+            <br>
+
+
+
         </form>
     </div>
-</div>
-
-<div>
+</body>
+</html>
+<br>
+<br>
+<div class="text-center">
     <a asp-action="Index">Back to List</a>
-</div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: white;
+        font-family: 'Arial';
+    }
+
+    .register {
+        width: 500px;
+        overflow: hidden;
+        margin: auto;
+        margin: 20 0 0 450px;
+        padding: 80px;
+        background:#28c8e2;
+        border-radius: 15px;
+    }
+
+    h2 {
+        text-align: center;
+        color: #277582;
+        padding: 20px;
+    }
+
+    label {
+        font-size: 17px;
+    }
+
+    #Name {
+        width: 300px;
+        height: 30px;
+        border: none;
+        border-radius: 3px;
+        padding-left: 8px;
+    }
+
+    #Email {
+        width: 300px;
+        height: 30px;
+        border: none;
+        border-radius: 3px;
+        padding-left: 8px;
+    }
+
+    #Mobile {
+        width: 300px;
+        height: 30px;
+        border: none;
+        border-radius: 3px;
+        padding-left: 8px;
+    }
+
+    #Password {
+        width: 300px;
+        height: 30px;
+        border: none;
+        border-radius: 3px;
+        padding-left: 8px;
+    }
+
+    #Address {
+        width: 300px;
+        height: 30px;
+        border: none;
+        border-radius: 3px;
+        padding-left: 8px;
+    }
+
+    #log {
+        width: 300px;
+        height: 30px;
+        border: none;
+        border-radius: 17px;
+        padding-left: 7px;
+        color: blue;
+    }
+</style>
